@@ -1,0 +1,20 @@
+<ui:composition template="/templates/base.xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:b="http://butterfaces.org/components"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:define name="content">
+        <div class="container">
+            Hello #{identity.userName} you are now in a secured area!
+
+            <h:form>
+                <b:commandLink value="logout"
+                               action="#{identity.logout}"
+                               styleClass="btn btn-primary pull-right"
+                               glyphicon="fa fa-sign-out">
+                    <f:ajax execute="@this"/>
+                </b:commandLink>
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>

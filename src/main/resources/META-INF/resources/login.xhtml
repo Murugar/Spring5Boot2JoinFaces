@@ -1,0 +1,25 @@
+<ui:composition template="/templates/base.xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:b="http://butterfaces.org/components"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:define name="content">
+        <h:form>
+            <b:text label="login"
+                    value="#{loginBean.userName}"
+                    autoFocus="true">
+            </b:text>
+            <b:secret label="password"
+                      value="#{loginBean.password}">
+            </b:secret>
+
+            <b:commandLink value="login"
+                           action="#{loginBean.login}"
+                           styleClass="btn btn-primary pull-right"
+                           glyphicon="fa fa-sign-in">
+                <f:ajax execute="@form" render="@form"/>
+                <b:defaultAction/>
+            </b:commandLink>
+        </h:form>
+    </ui:define>
+</ui:composition>
